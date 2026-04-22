@@ -5,25 +5,71 @@ authors: [xuying]
 tags: [代码分析]
 ---
 
-[Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog).
-
-Here are a few tips you might find useful.
-
 {/* truncate */}
 
-Simply add Markdown files (or folders) to the `blog` directory.
+## 准备工作
 
-Regular blog authors can be added to `authors.yml`.
+### 下载所需工具
 
-The blog post date can be extracted from filenames, such as:
+- [Firefox 浏览器](https://www.firefox.com/zh-CN/download/all/desktop-developer/win64/zh-CN/)
+- [Widevine L3 Decrypter](https://addons.mozilla.org/zh-CN/firefox/addon/widevine-l3-decrypter/)
+- [BBDown](https://github.com/nilaoda/BBDown/releases)
+- [mp4decrypt.exe](https://www.bento4.com/downloads/)
+ 
 
-- `2019-05-30-welcome.md`
-- `2019-05-30-welcome/index.md`
+## 测试步骤
 
-A blog post folder can be convenient to co-locate blog post images:
+### 1. 下载音视频流（不合并）
 
-![Docusaurus Plushie](./docusaurus-plushie-banner.jpeg)
+```bash
+BBDown.exe https://www.bilibili.com/cheese/play/ep1302284 --skip-mux
+```
 
-The blog supports tags as well!
+### 2. 获取解密密钥
 
-**And if you don't want a blog**: just delete this directory, and use `blog: false` in your Docusaurus config.
+参考下图获取 DRM 解密所需的 Key：
+
+![获取key示例](./MtjvpdPF3bWoQ2H0Rfz6lK.webp)
+
+### 3. DRM 解密
+
+使用 `mp4decrypt.exe` 分别解密音频和视频：
+
+```bash
+# 解密音频
+mp4decrypt.exe --key d8f66b93db284984b4e7fc50d71278ff:73ac4286e5a74f078abcbf3f8f40a6f0 "voice.m4a" "voice_.m4a"
+
+# 解密视频
+mp4decrypt.exe --key d8f66b93db284984b4e7fc50d71278ff:73ac4286e5a74f078abcbf3f8f40a6f0 "video.mp4" "video_.mp4"
+```
+
+> **注意**：`--key` 参数格式为 `密钥ID:解密密钥`
+
+### 4. 合并音视频
+
+使用 `ffmpeg` 合并解密后的文件：
+
+```bash
+ffmpeg.exe -i voice_.m4a -i video_.mp4 -c:v copy -c:a copy output.mp4
+```
+ 
+
+## 参考文档
+
+- [看雪论坛 [原创][首发] b 站 drm 视频流程简析](https://bbs.kanxue.com/thread-287970.htm)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

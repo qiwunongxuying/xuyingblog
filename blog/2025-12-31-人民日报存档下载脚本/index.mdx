@@ -5,25 +5,85 @@ authors: [xuying]
 tags: [代码分析]
 ---
 
-[Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog).
-
-Here are a few tips you might find useful.
-
 {/* truncate */}
 
-Simply add Markdown files (or folders) to the `blog` directory.
+> **维护状态**：本脚本已停止活跃维护。  
+> 原因：  
+> 1. 现有现成资源丰富  
+> 2. 脚本当前运行正常  
+> 
+> 可自由修改使用。
 
-Regular blog authors can be added to `authors.yml`.
+[下载地址：renminribao-1.4.zip](./renminribao-1.4.zip)
 
-The blog post date can be extracted from filenames, such as:
+---
 
-- `2019-05-30-welcome.md`
-- `2019-05-30-welcome/index.md`
+## 📦 存档资源推荐
 
-A blog post folder can be convenient to co-locate blog post images:
+### 1. 数据库（推荐，仅限在线查看）
 
-![Docusaurus Plushie](./docusaurus-plushie-banner.jpeg)
+> 如果以下方法不可用，可尝试使用本地图书馆的数据库（如湖北省图书馆提供《党报党刊资料库》，免费办理电子读者证即可访问）。
 
-The blog supports tags as well!
+**以湖北省图书馆为例：**
 
-**And if you don't want a blog**: just delete this directory, and use `blog: false` in your Docusaurus config.
+1. 访问 [https://www.library.hb.cn/](https://www.library.hb.cn/)，点击登录  
+2. 使用支付宝扫描二维码，办理电子读者证  
+3. 设置登录密码  
+4. 登录后进入 [数字资源页](https://www.library.hb.cn/resource/szzy/)，找到 **人民日报数据库**，选择“馆外访问”
+
+### 2. 在线网站（可下载）
+
+- [https://reader.jojokanbao.cn/support/](https://reader.jojokanbao.cn/support/)（支持下载）  
+- [https://cn.govopendata.com/renminribao/](https://cn.govopendata.com/renminribao/)
+
+### 3. 网盘
+
+- [OneDrive 存档](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBajJKQzFoQlRscXpoOEFFOTY0SEQ4TWM2SEF6alE%5FZT1RTzhibWY&id=B35A4E41580B893D%21122884&cid=B35A4E41580B893D)
+
+### 4. PT（Private Tracker）
+
+- 站点如 **btschool（学校）**、**m-team（馒头）** 包含 1946–2025 年几乎全部日期的存档  
+- 可请有账号的朋友帮忙下载  
+- 其他 PT 站点也可能存在，自行查找即可
+
+---
+
+## 🛠 脚本说明
+
+从官网 [https://paper.people.com.cn/rmrb/](https://paper.people.com.cn/rmrb/) 下载 PDF 并合并。
+
+### 运行环境
+
+- 需要本地安装 **Node.js**（建议高版本）
+
+### 使用方法
+
+```bash
+npm i
+node ./run.js
+```
+
+---
+
+## ⚠️ 免责声明
+
+本项目仅用于学习与研究目的。
+
+使用本项目所产生的一切行为与后果，均由使用者自行承担。  
+使用者在抓取、存储、传播任何网站数据前，应自行确认并遵守：
+
+- 目标网站的使用条款（ToS）  
+- `robots.txt` 及相关访问策略  
+- 适用的法律法规（包括但不限于版权、数据保护、隐私等）
+
+作者不对本项目的可用性、合法性或适用性作出任何保证，  
+亦不对任何直接或间接损失承担责任。
+
+---
+
+## 🔗 其他类似项目（未经验证）
+
+- [GetPeoplesDailyPDF](https://github.com/FuryMartin/GetPeoplesDailyPDF) – 基于 Python 的下载器  
+- [油猴脚本](https://linux.do/t/topic/672135)
+
+
