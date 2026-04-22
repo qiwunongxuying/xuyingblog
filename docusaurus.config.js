@@ -29,7 +29,8 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'qiwunongxuying', // Usually your GitHub org/user name.
   projectName: 'xuying', // Usually your repo name.
-
+  trailingSlash: false, 
+  deploymentBranch: 'master',
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -39,8 +40,6 @@ const config = {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans'],
   },
-
-  trailingSlash: true, 
 
   presets: [
     [
