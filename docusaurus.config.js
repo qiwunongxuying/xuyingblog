@@ -78,24 +78,6 @@ const config = {
     ],
   ],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            to: '/人民日报存档下载脚本.html',
-            from: '/posts/2025/12/31/人民日报存档下载脚本.html',
-          },
-          {
-            to: '/B站DRM视频下载与解密指南.html',
-            from: '/posts/2026/04/15/B站DRM视频下载与解密指南.html',
-          },
-        ],
-      },
-    ],
-  ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
