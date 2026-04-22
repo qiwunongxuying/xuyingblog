@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -29,7 +29,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'qiwunongxuying', // Usually your GitHub org/user name.
   projectName: 'xuying', // Usually your repo name.
-  trailingSlash: false, 
+  trailingSlash: false,
   deploymentBranch: 'master',
   onBrokenLinks: 'throw',
 
@@ -69,12 +69,30 @@ const config = {
           ignorePatterns: ['/tags/**'],
           filename: 'sitemap.xml',
           createSitemapItems: async (params) => {
-            const {defaultCreateSitemapItems, ...rest} = params;
+            const { defaultCreateSitemapItems, ...rest } = params;
             const items = await defaultCreateSitemapItems(rest);
             return items.filter((item) => !item.url.includes('/page/'));
           },
         },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/人民日报存档下载脚本.html',
+            from: '/posts/2025/12/31/人民日报存档下载脚本.html',
+          },
+          {
+            to: '/B站DRM视频下载与解密指南.html',
+            from: '/posts/2026/04/15/B站DRM视频下载与解密指南.html',
+          },
+        ],
+      },
     ],
   ],
 
@@ -91,7 +109,7 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
-        }, 
+        },
       },
       footer: {
         style: 'dark',
