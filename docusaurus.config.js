@@ -40,6 +40,8 @@ const config = {
     locales: ['zh-Hans'],
   },
 
+  trailingSlash: true, 
+
   presets: [
     [
       'classic',
